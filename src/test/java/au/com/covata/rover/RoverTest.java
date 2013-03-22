@@ -58,6 +58,18 @@ public class RoverTest {
 		testRover.spin('R');
 		assertTrue(testRover.getCurrentPosition().getOrientation().equals(Orientation.NORTH));
 	}
+	
+	@Test
+	public void testEnumClone() {
+		Orientation old = Orientation.EAST;
+		Orientation test = old;
+		System.out.println(old);
+		System.out.println(test);
+		test = Orientation.NORTH;
+		System.out.println(old);
+		System.out.println(test);
+		
+	}
 
 	public static Rover createRover(int index) {
 		return new Rover(index);

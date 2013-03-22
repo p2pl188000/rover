@@ -1,5 +1,6 @@
 package au.com.covata.rover;
 
+
 public class Rover extends RoverSupport implements IRover {
 
 	private static final long serialVersionUID = -7321489306895682499L;
@@ -80,7 +81,7 @@ public class Rover extends RoverSupport implements IRover {
 
 	public void setStartPosition(Position startPosition) {
 		this.startPosition = startPosition;
-		this.currentPosition = startPosition;
+		this.currentPosition = startPosition.clone();
 	}
 
 	public int getSquadIndex() {

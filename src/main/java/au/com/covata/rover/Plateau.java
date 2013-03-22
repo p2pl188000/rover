@@ -55,13 +55,16 @@ public class Plateau implements Serializable{
 		boolean isOccupied = false;
 		for (IRover rover : rovers) {
 			if(rover.getCurrentPosition() != null
-					&& rover.getCurrentPosition().getCoordiate() != null) {
-				if(rover.getCurrentPosition().getCoordiate().equals(coordinate)) {
+					&& rover.getCurrentPosition().getCoordiate() != null
+					&& rover.getCurrentPosition().getCoordiate().equals(coordinate)) {
 					return true;
-				}
 			}
 		}
 		return isOccupied;
+	}
+	
+	public List<IRover> getRovers() {
+		return rovers;
 	}
 
 }

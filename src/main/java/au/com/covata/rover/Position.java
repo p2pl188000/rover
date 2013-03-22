@@ -2,12 +2,25 @@ package au.com.covata.rover;
 
 import java.io.Serializable;
 
-public class Position implements Serializable {
+public class Position implements Cloneable, Serializable {
 	private static final long serialVersionUID = -2048527375605794512L;
 
 	private Orientation orientation;
 
 	private Coordinate coordiate;
+	
+	@Override
+	public Position clone() {
+		Position position;
+		try {
+			position = (Position)super.clone();
+			position.setOrientation(this.orientation);
+			position.setCoordiate(new Coordinate(this.coordiate.getXcoordinate(), this.coordiate.getYcoordinate()));
+		} catch (CloneNotSupportedException e) {
+			throw new AssertionError(e);
+		}
+		return position;
+	}
 
 	public Position() {
 

@@ -18,19 +18,16 @@ abstract class RoverSupport extends AbstractRobotic {
 
 	@Override
 	public boolean validateInstruction(final String instruction) {
-		boolean isInstructionValid = super.validateInstruction(instruction);
-		if(Boolean.FALSE.equals(isInstructionValid)) {
-			return isInstructionValid;
+		if(Boolean.FALSE.equals(super.validateInstruction(instruction))) {
+			return false;
 		}
 		for(char ch: instruction.toCharArray()) {
 			if(ch != SPIN_LEFT
 					&& ch != SPIN_RIGHT
 					&& ch != MOVE_FORWARD) {
-				isInstructionValid = false;
-				break;
-			}
+				return false;			}
 		}
-		return isInstructionValid;
+		return true;
 	}
 
 	protected void spin(char rightOrLeft) {

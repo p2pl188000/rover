@@ -2,7 +2,6 @@ package au.com.covata.rover;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Explorer {
@@ -27,10 +26,9 @@ public class Explorer {
 
 	public void explore() throws IOException, InstructionException {
 		System.out.println("Reading input ...");
-		InputStream inStream = Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream(file);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				inStream));
+				Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(file)));
 		String line = null;
 		int count = 1;
 		System.out.println("Output is: ");
@@ -49,8 +47,7 @@ public class Explorer {
 				}
 			} else {  // odd number line is instruction
 					if (currentRover != null) {
-						Position position = currentRover.execute(line);
-						System.out.println(position);
+						System.out.println(currentRover.execute(line));
 					}
 			}
 			count++;
