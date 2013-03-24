@@ -15,7 +15,7 @@ public class Position implements Cloneable, Serializable {
 		try {
 			position = (Position)super.clone();
 			position.setOrientation(this.orientation);
-			position.setCoordiate(new Coordinate(this.coordiate.getXcoordinate(), this.coordiate.getYcoordinate()));
+			position.setCoordiate(this.coordiate.clone());
 		} catch (CloneNotSupportedException e) {
 			throw new AssertionError(e);
 		}

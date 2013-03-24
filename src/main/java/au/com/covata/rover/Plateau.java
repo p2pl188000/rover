@@ -52,7 +52,6 @@ public class Plateau implements Serializable{
 	 * @return true if the location is occupied, false otherwise.
 	 */
 	public boolean isLocationOccupied(Coordinate coordinate) {
-		boolean isOccupied = false;
 		for (IRover rover : rovers) {
 			if(rover.getCurrentPosition() != null
 					&& rover.getCurrentPosition().getCoordiate() != null
@@ -60,7 +59,7 @@ public class Plateau implements Serializable{
 					return true;
 			}
 		}
-		return isOccupied;
+		return false;
 	}
 	
 	public List<IRover> getRovers() {

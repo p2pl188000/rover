@@ -25,11 +25,8 @@ public class Explorer {
 	}
 
 	public void explore() throws IOException, InstructionException {
-		System.out.println("Reading input ...");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream(file)));
 		String line = null;
+		final BufferedReader reader = readFile();
 		int count = 1;
 		System.out.println("Output is: ");
 		while ((line = reader.readLine()) != null) {
@@ -52,6 +49,14 @@ public class Explorer {
 			}
 			count++;
 		}
+	}
+
+	private BufferedReader readFile() {
+		System.out.println("Reading input ...");
+		BufferedReader reader = new BufferedReader(new InputStreamReader(
+				Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(file)));
+		return reader;
 	}
 
 	private void setPlateauCoordniate(String line) {

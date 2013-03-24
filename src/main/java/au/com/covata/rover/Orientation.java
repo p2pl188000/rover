@@ -48,19 +48,18 @@ public enum Orientation {
 		return toRight;
 	}
 	
-	public static Orientation  valueOfShort(String shortString) {
-        Orientation result = null;
-        if(shortString.equals("N")) {
-               result = Orientation.NORTH;
-        } else if (shortString.equals("S")) {
-               result = Orientation.SOUTH;
-        } else if(shortString.equals("W")) {
-               result =  Orientation.WEST;
-        } else if(shortString.equals("E")) {
-               result = Orientation.EAST;
-        }
-        return result;
- }
+	public static Orientation valueOfShort(String shortString) {
+		if (shortString.equals("N")) {
+			return Orientation.NORTH;
+		} else if (shortString.equals("S")) {
+			return Orientation.SOUTH;
+		} else if (shortString.equals("W")) {
+			return Orientation.WEST;
+		} else if (shortString.equals("E")) {
+			return Orientation.EAST;
+		}
+		return null;
+	}
 
 	public String getShortString() {
 		return shortString;

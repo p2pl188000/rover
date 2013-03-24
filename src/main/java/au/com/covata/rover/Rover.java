@@ -68,7 +68,6 @@ public class Rover extends RoverSupport implements IRover {
 			} catch (InstructionException e) {
 				e.printStackTrace();
 			}
-			break;
 		}
 	}
 

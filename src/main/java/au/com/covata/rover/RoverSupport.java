@@ -55,9 +55,7 @@ abstract class RoverSupport extends AbstractRobotic {
 	}
 	
 	protected Coordinate getMoveToLocation() {
-		Coordinate moveTo = new Coordinate();
-		moveTo.setXcoordinate(currentPosition.getCoordiate().getXcoordinate());
-		moveTo.setYcoordinate(currentPosition.getCoordiate().getYcoordinate());
+		Coordinate moveTo = currentPosition.getCoordiate().clone();
 		switch(currentPosition.getOrientation()) {
 		case EAST:
 			moveTo.incrementX();
@@ -71,9 +69,6 @@ abstract class RoverSupport extends AbstractRobotic {
 		case WEST:
 			moveTo.decrementX();
 			break;
-		default:
-			break;
-		
 		}
 		return moveTo;
 	}
